@@ -1,0 +1,153 @@
+backend:
+  name: github
+  repo: team-dreamly/dreamly-site
+site_url: http://new.dreamly.se
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: news-jp
+    label: News (日本語)
+    folder: content/posts
+    filter: { field: 'locale', value: 'jp' }
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: '/{{slug}}/'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'post' }
+      - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'jp' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: news-en
+    label: News (English)
+    folder: content/posts
+    filter: { field: 'locale', value: 'en' }
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    preview_path: '/en/{{slug}}/'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'post' }
+      - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'en' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'pages-jp'
+    label: 'Pages (日本語)'
+    files:
+      - label: 'トップ'
+        name: 'index'
+        file: 'content/pages/index.jp.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'jp' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - label: 'Dreamlyについて'
+        name: 'about'
+        file: 'content/pages/about.jp.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'about-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'jp' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - label: '事業内容'
+        name: 'solutions'
+        file: 'content/pages/solutions.jp.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'solutions-page',
+            }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'jp' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - label: 'ニュース'
+        name: 'news'
+        file: 'content/pages/news.jp.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'news-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'jp' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+  - name: 'pages-en'
+    label: 'Pages (English)'
+    files:
+      - label: 'Home'
+        name: 'index'
+        file: 'content/pages/index.en.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'en' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Group 1
+                name: 'group-1'
+                widget: object
+                fields:
+                  - { label: Group 1 heading, name: 'group-1-heading', widget: string }
+                  - { label: Group 1 image, name: 'group-1-image', widget: image }
+                  - { label: Group 1 body, name: 'group-1-body', widget: markdown }
+              - label: Group 2
+                name: 'group-2'
+                widget: object
+                fields:
+                  - { label: Group 2 heading, name: 'group-2-heading', widget: string }
+                  - { label: Group 2 image, name: 'group-2-image', widget: image }
+                  - { label: Group 2 body, name: 'group-2-body', widget: markdown }
+              - label: Group 3
+                name: 'group-3'
+                widget: object
+                fields:
+                  - { label: Group 3 heading, name: 'group-3-heading', widget: string }
+                  - { label: Group 3 image, name: 'group-3-image', widget: image }
+                  - { label: Group 3 body, name: 'group-3-body', widget: markdown }
+              - label: Group 4
+                name: 'group-4'
+                widget: object
+                fields:
+                  - { label: Group 4 heading, name: 'group-4-heading', widget: string }
+                  - { label: Group 4 image, name: 'group-4-image', widget: image }
+                  - { label: Group 4 body, name: 'group-4-body', widget: markdown }
+      - label: 'About'
+        name: 'about'
+        file: 'content/pages/about.en.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'about-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'en' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - label: 'Solutions'
+        name: 'solutions'
+        file: 'content/pages/solutions.en.md'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'solutions-page',
+            }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'en' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - label: 'News'
+        name: 'news'
+        file: 'content/pages/news.en.md'
+        fields:
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'news-page' }
+          - { label: 'Locale', name: 'locale', widget: 'hidden', default: 'en' }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }

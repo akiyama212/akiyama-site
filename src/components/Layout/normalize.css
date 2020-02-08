@@ -1,0 +1,22 @@
+html {
+  font-family: 'Noto Sans', 'Roboto', sans-serif;
+  text-decoration: none;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep code-blocks the same size as everything else */
+pre {
+  font-family: monospace, monospace;
+  font-size: 1rem;
+}
+code {
+  font-family: monospace, monospace;
+  font-size: 100%;
+}
