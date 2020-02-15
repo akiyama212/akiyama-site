@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: team-dreamly/dreamly-site
+  repo: akiyama212/akiyama-site
 site_url: http://new.dreamly.se
 media_folder: static/img
 public_folder: /img
